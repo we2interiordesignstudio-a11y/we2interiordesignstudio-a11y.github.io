@@ -53,7 +53,7 @@ export default function ContactPage() {
         <div className="photo-frame overflow-hidden rounded-sm">
           <iframe
             title="we2 studio location — Vadodara"
-            src="https://www.google.com/maps?q=Alkapuri,Vadodara,Gujarat&output=embed"
+            src="https://www.google.com/maps?q=Gotri,Vadodara,Gujarat&output=embed"
             className="h-[420px] w-full grayscale"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
