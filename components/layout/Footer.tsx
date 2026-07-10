@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
-import { LogoMark } from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
@@ -8,8 +7,8 @@ export default function Footer() {
       <div className="container-editorial py-20 md:py-28">
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link href="/" aria-label="we2 home" className="inline-block text-ink">
-              <LogoMark className="h-10 w-auto" />
+            <Link href="/" className="font-serif text-4xl tracking-tight" aria-label="we2 home">
+              we2<span className="text-bronze">.</span>
             </Link>
             <p className="mt-4 font-sans text-[0.62rem] uppercase tracking-label text-ink/50">
               Architect&ensp;|&ensp;Interior&ensp;|&ensp;Civil
