@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { nav, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { LogoMark } from "@/components/ui/Logo";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -35,8 +36,8 @@ export default function Navbar() {
         )}
       >
         <nav className="container-editorial flex items-center justify-between">
-          <Link href="/" className="font-serif text-2xl leading-none tracking-tight" aria-label="we2 home">
-            we2<span className="text-bronze">.</span>
+          <Link href="/" aria-label="we2 home" className="text-ink transition-colors hover:text-bronze">
+            <LogoMark className="h-7 w-auto" />
           </Link>
 
           <div className="hidden items-center gap-9 lg:flex">

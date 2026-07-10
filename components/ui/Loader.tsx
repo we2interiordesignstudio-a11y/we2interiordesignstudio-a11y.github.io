@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { LogoMark } from "@/components/ui/Logo";
 
 // Elegant one-time loading veil. Reveals on first paint, then lifts away.
 export default function Loader() {
@@ -33,11 +34,11 @@ export default function Loader() {
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-              className="text-center"
+              className="flex flex-col items-center text-center"
             >
-              <div className="font-serif text-4xl tracking-tight md:text-6xl">we2</div>
-              <div className="mt-4 font-sans text-[0.65rem] uppercase tracking-label text-stone">
-                Interior Design Studio
+              <LogoMark className="h-16 w-auto text-canvas md:h-24" />
+              <div className="mt-6 font-sans text-[0.65rem] uppercase tracking-label text-stone">
+                Architect&ensp;|&ensp;Interior&ensp;|&ensp;Civil
               </div>
             </motion.div>
           </div>

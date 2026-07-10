@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420">
+  <style>
+    .m { stroke: #1C1C1C; }
+    @media (prefers-color-scheme: dark) { .m { stroke: #FAF8F4; } }
+  </style>
+  <g class="m" fill="none" stroke-width="34" stroke-linecap="round">
+    <path d="M62 40 L190 400" transform="translate(-14 -10)" />
+    <path d="M182 24 L268 272 L392 32" transform="translate(-14 -10)" />
+    <g stroke-width="25">
+      <path d="M242 100 L332 100" transform="translate(-14 -10)" />
+      <path d="M264 168 L318 168" transform="translate(-14 -10)" />
+      <path d="M286 234 L302 234" transform="translate(-14 -10)" />
+    </g>
+  </g>
+</svg>

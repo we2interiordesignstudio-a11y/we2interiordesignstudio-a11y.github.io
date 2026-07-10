@@ -31,7 +31,7 @@ export default function Hero() {
           transition={{ delay: 1.6, duration: 1 }}
           className="mb-8 font-sans text-[0.7rem] uppercase tracking-label text-canvas/80"
         >
-          Interior Design Studio · Vadodara
+          Architect · Interior · Civil — Vadodara
         </motion.p>
 
         <h1 className="max-w-[16ch] font-serif text-display-lg text-canvas">
