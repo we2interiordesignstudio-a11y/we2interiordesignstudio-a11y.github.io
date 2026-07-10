@@ -42,9 +42,9 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-ink/35" />
-        <div className="container-editorial relative z-10 pb-16 text-canvas md:pb-24">
-          <p className="mb-6 font-sans text-[0.7rem] uppercase tracking-label text-canvas/80">
+        <div className="absolute inset-0 bg-charcoal/35" />
+        <div className="container-editorial relative z-10 pb-16 text-cream md:pb-24">
+          <p className="mb-6 font-sans text-[0.7rem] uppercase tracking-label text-cream/80">
             {project.category} · {project.year}
           </p>
           <h1 className="font-serif text-display-lg tracking-tight">

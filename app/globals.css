@@ -2,16 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Palette as RGB triplets so Tailwind opacity modifiers (e.g. text-ink/60) stay theme-aware */
 :root {
-  --canvas: #faf8f4;
-  --ink: #1c1c1c;
+  color-scheme: light;
+  --canvas: 250 248 244;
+  --ink: 28 28 28;
+  --mist: 241 237 230;
+  --line: 227 221 209;
+  --stone: 201 193 180;
+  --beige: 231 224 212;
+  --sand: 216 207 191;
   --header-h: 84px;
 }
 
 /* Dark mode — a deep charcoal gallery, still warm */
 .dark {
-  --canvas: #141311;
-  --ink: #ece7dd;
+  color-scheme: dark;
+  --canvas: 20 19 17;
+  --ink: 236 231 221;
+  --mist: 28 27 24;
+  --line: 62 58 50;
+  --stone: 138 130 117;
+  --beige: 46 43 38;
+  --sand: 64 59 51;
 }
 
 @layer base {
@@ -22,8 +35,8 @@
   }
 
   body {
-    background-color: var(--canvas);
-    color: var(--ink);
+    background-color: rgb(var(--canvas));
+    color: rgb(var(--ink));
     font-feature-settings: "kern", "liga", "calt";
   }
 
@@ -80,7 +93,7 @@
   .photo-frame {
     position: relative;
     overflow: hidden;
-    background-color: #e7e0d4;
+    background-color: rgb(var(--beige));
   }
   .photo-frame::after {
     content: "";

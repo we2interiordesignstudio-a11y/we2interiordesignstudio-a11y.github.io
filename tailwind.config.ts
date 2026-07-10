@@ -9,18 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warm White canvas
-        canvas: "#FAF8F4",
-        // Charcoal ink
-        ink: "#1C1C1C",
-        // Accents — natural, muted, no bright colors
-        stone: "#C9C1B4",
-        beige: "#E7E0D4",
-        sand: "#D8CFBF",
+        // Theme-aware palette (flips in .dark via CSS variables in globals.css)
+        canvas: "rgb(var(--canvas) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        stone: "rgb(var(--stone) / <alpha-value>)",
+        beige: "rgb(var(--beige) / <alpha-value>)",
+        sand: "rgb(var(--sand) / <alpha-value>)",
+        mist: "rgb(var(--mist) / <alpha-value>)",
+        line: "rgb(var(--line) / <alpha-value>)",
+        // Fixed accents — identical in both themes
         bronze: "#9A7B4F",
         olive: "#6E6B54",
-        mist: "#F1EDE6",
-        line: "#E3DDD1",
+        // Fixed neutrals for photo overlays, scrims and the loader (never flip)
+        charcoal: "#1C1C1C",
+        cream: "#FAF8F4",
       },
       fontFamily: {
         // Editorial display serif + modern sans (wired up via next/font)

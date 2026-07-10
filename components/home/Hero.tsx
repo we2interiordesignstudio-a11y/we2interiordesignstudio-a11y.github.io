@@ -21,7 +21,7 @@ export default function Hero() {
           />
         </div>
         {/* whisper-quiet vignette for text legibility — flat, not a gradient */}
-        <div className="absolute inset-0 bg-ink/40" />
+        <div className="absolute inset-0 bg-charcoal/40" />
       </div>
 
       <div className="container-editorial relative z-10 pb-16 md:pb-24">
@@ -29,12 +29,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 1 }}
-          className="mb-8 font-sans text-[0.7rem] uppercase tracking-label text-canvas/80"
+          className="mb-8 font-sans text-[0.7rem] uppercase tracking-label text-cream/80"
         >
           Architect · Interior · Civil — Vadodara
         </motion.p>
 
-        <h1 className="max-w-[16ch] font-serif text-display-lg text-canvas">
+        <h1 className="max-w-[16ch] font-serif text-display-lg text-cream">
           {["We design spaces", "that become", "timeless."].map((line, i) => (
             <span key={line} className="block overflow-hidden">
               <motion.span
@@ -67,8 +67,8 @@ export default function Hero() {
         transition={{ delay: 3, duration: 1 }}
         className="absolute bottom-8 right-6 z-10 hidden items-center gap-3 md:right-16 md:flex"
       >
-        <span className="font-sans text-[0.65rem] uppercase tracking-label text-canvas/70">Scroll</span>
-        <span className="block h-10 w-px bg-canvas/50" />
+        <span className="font-sans text-[0.65rem] uppercase tracking-label text-cream/70">Scroll</span>
+        <span className="block h-10 w-px bg-cream/50" />
       </motion.div>
 
       <Link href="#featured" aria-label="Skip to content" className="sr-only">

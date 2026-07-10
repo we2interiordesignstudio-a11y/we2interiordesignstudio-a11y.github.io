@@ -23,7 +23,7 @@ export default function Loader() {
     <AnimatePresence>
       {!done && (
         <motion.div
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-ink text-canvas"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-charcoal text-cream"
           initial={{ opacity: 1 }}
           exit={{ y: "-100%" }}
           transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
@@ -38,13 +38,13 @@ export default function Loader() {
               <div className="font-serif text-4xl tracking-tight md:text-6xl">
                 we2<span className="text-bronze">.</span>
               </div>
-              <div className="mt-5 font-sans text-[0.65rem] uppercase tracking-label text-stone">
+              <div className="mt-5 font-sans text-[0.65rem] uppercase tracking-label text-cream/45">
                 Architect&ensp;|&ensp;Interior&ensp;|&ensp;Civil
               </div>
             </motion.div>
           </div>
           <motion.div
-            className="absolute bottom-10 left-1/2 h-px -translate-x-1/2 bg-stone/50"
+            className="absolute bottom-10 left-1/2 h-px -translate-x-1/2 bg-cream/30"
             initial={{ width: 0 }}
             animate={{ width: 160 }}
             transition={{ duration: 1.8, ease: "easeInOut" }}

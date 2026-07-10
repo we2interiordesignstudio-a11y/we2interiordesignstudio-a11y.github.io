@@ -48,11 +48,11 @@ export default function ProjectGallery({ gallery }: { gallery: Project["gallery"
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[120] flex items-center justify-center bg-ink/95 p-4 md:p-12"
+            className="fixed inset-0 z-[120] flex items-center justify-center bg-charcoal/95 p-4 md:p-12"
             onClick={() => setOpen(null)}
           >
             <button
-              className="absolute right-6 top-6 z-10 font-sans text-[0.7rem] uppercase tracking-label text-canvas/70 hover:text-canvas"
+              className="absolute right-6 top-6 z-10 font-sans text-[0.7rem] uppercase tracking-label text-cream/70 hover:text-cream"
               onClick={() => setOpen(null)}
             >
               Close ✕
@@ -74,7 +74,7 @@ export default function ProjectGallery({ gallery }: { gallery: Project["gallery"
                   className="object-contain"
                 />
               </div>
-              <p className="mt-4 text-center font-sans text-[0.72rem] uppercase tracking-wide text-canvas/60">
+              <p className="mt-4 text-center font-sans text-[0.72rem] uppercase tracking-wide text-cream/60">
                 {gallery[open].caption} — {open + 1} / {gallery.length}
               </p>
             </motion.div>

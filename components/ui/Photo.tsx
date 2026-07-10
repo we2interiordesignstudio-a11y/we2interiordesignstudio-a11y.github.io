@@ -70,7 +70,7 @@ export default function Photo({
           <span
             className={cn(
               "absolute bottom-4 left-4 z-10 font-sans text-[0.6rem] uppercase tracking-label",
-              src ? "text-canvas/80" : "text-ink/40"
+              src ? "text-cream/80" : "text-ink/40"
             )}
           >
             {label}
