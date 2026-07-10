@@ -4,8 +4,7 @@ export const site = {
   tagline: "We design spaces that become timeless.",
   description:
     "we2 is an architecture, interior design and civil studio based in Vadodara, crafting timeless residential and commercial spaces defined by restraint, material honesty and quiet luxury.",
-  // Live at GitHub Pages for now; change to the custom domain (e.g. https://we2studio.in) when purchased.
-  url: "https://we2interiordesignstudio-a11y.github.io",
+  url: "https://we2interiors.com",
   email: "we2interiordesignstudio@gmail.com",
   phone: "+91 92656 36535",
   location: "Vadodara, Gujarat, India",
