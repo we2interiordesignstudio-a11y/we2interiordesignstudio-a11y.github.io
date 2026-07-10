@@ -38,6 +38,9 @@ export default function ContactPage() {
               <p className="mt-3 space-y-1 font-sans text-sm text-ink/70">
                 <a href={`mailto:${site.email}`} className="link-underline block">{site.email}</a>
                 <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="link-underline block">{site.phone}</a>
+                <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="link-underline block">
+                  WhatsApp us
+                </a>
               </p>
             </div>
             <div className="border-t border-line pt-5">

@@ -5,8 +5,10 @@ export const site = {
   description:
     "we2 is an architecture, interior design and civil studio based in Vadodara, crafting timeless residential and commercial spaces defined by restraint, material honesty and quiet luxury.",
   url: "https://we2interiors.com",
-  email: "we2interiordesignstudio@gmail.com",
+  email: "studio@we2interiors.com",
   phone: "+91 92656 36535",
+  whatsapp:
+    "https://wa.me/919265636535?text=Hello%20we2%20studio%20%E2%80%94%20I%27d%20like%20to%20discuss%20a%20project.",
   location: "Vadodara, Gujarat, India",
   address: {
     street: "Gotri",
@@ -16,6 +18,10 @@ export const site = {
     country: "India",
   },
   social: [
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/919265636535?text=Hello%20we2%20studio%20%E2%80%94%20I%27d%20like%20to%20discuss%20a%20project.",
+    },
     { label: "Instagram", href: "https://instagram.com" },
     { label: "Pinterest", href: "https://pinterest.com" },
     { label: "LinkedIn", href: "https://linkedin.com" },

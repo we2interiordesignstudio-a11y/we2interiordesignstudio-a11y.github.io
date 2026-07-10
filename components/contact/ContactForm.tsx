@@ -22,7 +22,7 @@ export default function ContactForm() {
     const body = Array.from(data.entries())
       .map(([k, v]) => `${k}: ${v}`)
       .join("\n");
-    window.location.href = `mailto:we2interiordesignstudio@gmail.com?subject=New enquiry — ${data.get("name")}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:studio@we2interiors.com?subject=New enquiry — ${data.get("name")}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
 

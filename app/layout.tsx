@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Cursor from "@/components/ui/Cursor";
 import Loader from "@/components/ui/Loader";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const display = Fraunces({
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Loader />
         <Cursor />
         <ScrollProgress />
+        <WhatsAppButton />
         <SmoothScroll>
           <Navbar />
           <main>{children}</main>
