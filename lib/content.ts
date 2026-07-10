@@ -69,6 +69,7 @@ export const journal = [
     date: "June 2026",
     excerpt: "Why the most memorable rooms are often the ones that ask the least of you.",
     tone: "#D4CBBB",
+    cover: "/projects/rathod-03.jpg",
   },
   {
     slug: "materials-that-age-well",
@@ -77,6 +78,7 @@ export const journal = [
     date: "April 2026",
     excerpt: "On patina, honesty, and choosing surfaces for the life they will lead.",
     tone: "#CBC2B2",
+    cover: "/projects/sage-03.jpg",
   },
   {
     slug: "designing-for-indian-light",
@@ -84,6 +86,7 @@ export const journal = [
     category: "Field Notes",
     date: "February 2026",
     excerpt: "The particular gift, and challenge, of a subcontinental sun.",
+    cover: "/projects/rathod-06.jpg",
     tone: "#DED6C6",
   },
 ];

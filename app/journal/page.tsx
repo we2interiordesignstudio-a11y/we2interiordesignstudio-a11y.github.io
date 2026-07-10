@@ -23,7 +23,7 @@ export default function JournalPage() {
       <section className="container-editorial pb-32">
         <Reveal className="group mb-24 block">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <Photo tone={lead.tone} ratio="aspect-[4/3]" />
+            <Photo src={lead.cover} alt={lead.title} tone={lead.tone} ratio="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 50vw" />
             <div>
               <p className="eyebrow">{lead.category} · {lead.date}</p>
               <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tight md:text-5xl">{lead.title}</h2>
@@ -38,7 +38,7 @@ export default function JournalPage() {
         <div className="grid gap-x-10 gap-y-16 border-t border-line pt-16 md:grid-cols-2">
           {rest.map((entry, i) => (
             <Reveal as="div" key={entry.slug} delay={i * 0.5} className="group">
-              <Photo tone={entry.tone} ratio="aspect-[16/10]" />
+              <Photo src={entry.cover} alt={entry.title} tone={entry.tone} ratio="aspect-[16/10]" sizes="(max-width: 768px) 100vw, 50vw" />
               <p className="eyebrow mt-6">{entry.category} · {entry.date}</p>
               <h3 className="mt-3 font-serif text-3xl tracking-tight transition-colors duration-500 group-hover:text-bronze">
                 {entry.title}

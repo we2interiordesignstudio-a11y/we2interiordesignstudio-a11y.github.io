@@ -18,7 +18,7 @@ export default function JournalSection() {
           {journal.map((entry, i) => (
             <Reveal as="div" key={entry.slug} delay={i}>
               <Link href="/journal" data-cursor="hover" className="group block">
-                <Photo tone={entry.tone} ratio="aspect-[5/6]" />
+                <Photo src={entry.cover} alt={entry.title} tone={entry.tone} ratio="aspect-[5/6]" sizes="(max-width: 768px) 100vw, 33vw" />
                 <p className="eyebrow mt-6">{entry.category} · {entry.date}</p>
                 <h3 className="mt-3 font-serif text-2xl leading-snug tracking-tight transition-colors duration-500 group-hover:text-bronze">
                   {entry.title}
