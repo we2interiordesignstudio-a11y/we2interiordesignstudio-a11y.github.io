@@ -89,6 +89,10 @@ const schema = {
     closes: "18:00",
   },
   knowsAbout: ["Interior design", "Architecture", "Civil construction", "Turnkey interiors", "Residential design"],
+  sameAs: [
+    "https://www.instagram.com/we2_interior/",
+    "https://www.justdial.com/Vadodara/We2-Interior-Design-Studio-Sama/0265PX265-X265-210906145522-K6L9_BZDET",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

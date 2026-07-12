@@ -22,9 +22,11 @@ export const site = {
       label: "WhatsApp",
       href: "https://wa.me/919265636535?text=Hello%20we2%20studio%20%E2%80%94%20I%27d%20like%20to%20discuss%20a%20project.",
     },
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "Pinterest", href: "https://pinterest.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
+    { label: "Instagram", href: "https://www.instagram.com/we2_interior/" },
+    {
+      label: "Justdial",
+      href: "https://www.justdial.com/Vadodara/We2-Interior-Design-Studio-Sama/0265PX265-X265-210906145522-K6L9_BZDET",
+    },
   ],
 } as const;
 
