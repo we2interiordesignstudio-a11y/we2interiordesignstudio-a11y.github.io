@@ -61,36 +61,6 @@ export const testimonials = [
   },
 ];
 
-export const journal = [
-  {
-    slug: "the-quiet-luxury-of-restraint",
-    title: "The Quiet Luxury of Restraint",
-    category: "Philosophy",
-    date: "June 2026",
-    excerpt: "Why the most memorable rooms are often the ones that ask the least of you.",
-    tone: "#D4CBBB",
-    cover: "/projects/rathod-03.jpg",
-  },
-  {
-    slug: "materials-that-age-well",
-    title: "Materials That Age Well",
-    category: "Craft",
-    date: "April 2026",
-    excerpt: "On patina, honesty, and choosing surfaces for the life they will lead.",
-    tone: "#CBC2B2",
-    cover: "/projects/sage-03.jpg",
-  },
-  {
-    slug: "designing-for-indian-light",
-    title: "Designing for Indian Light",
-    category: "Field Notes",
-    date: "February 2026",
-    excerpt: "The particular gift, and challenge, of a subcontinental sun.",
-    cover: "/projects/rathod-06.jpg",
-    tone: "#DED6C6",
-  },
-];
-
 export const services = [
   {
     title: "Interior Architecture",

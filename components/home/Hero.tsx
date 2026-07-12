@@ -1,15 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  // Subtle parallax: the image drifts at ~85% of scroll speed as the hero leaves the viewport
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
   return (
-    <section className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden">
+    <section ref={ref} className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden">
       {/* Background: swap for a film later — <video src="/hero.mp4" autoPlay muted loop playsInline poster="/projects/dune-01.jpg" /> */}
-      <div className="absolute inset-0">
+      <motion.div style={{ y }} className="absolute inset-0">
         <div className="absolute inset-0 animate-kenburns">
           <Image
             src="/projects/dune-01.jpg"
@@ -22,7 +28,7 @@ export default function Hero() {
         </div>
         {/* whisper-quiet vignette for text legibility — flat, not a gradient */}
         <div className="absolute inset-0 bg-charcoal/40" />
-      </div>
+      </motion.div>
 
       <div className="container-editorial relative z-10 pb-16 md:pb-24">
         <motion.p

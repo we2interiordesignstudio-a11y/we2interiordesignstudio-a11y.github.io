@@ -62,6 +62,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               { k: "Area", v: project.area },
               { k: "Year", v: project.year },
               { k: "Scope", v: project.scope.join(", ") },
+              { k: "Materials", v: project.materials.join(", ") },
             ].map((row) => (
               <div key={row.k} className="border-t border-line pt-4">
                 <dt className="eyebrow">{row.k}</dt>

@@ -6,6 +6,7 @@ export type Project = {
   location: string;
   area: string;
   scope: string[];
+  materials: string[];
   intro: string;
   concept: string;
   hero: string; // hero image path
@@ -24,6 +25,7 @@ export const projects: Project[] = [
     location: "Vadodara, Gujarat",
     area: "Residence",
     scope: ["Interior architecture", "Bespoke joinery", "Lighting design", "Styling"],
+    materials: ["Walnut veneer", "Fluted stone", "Brushed brass", "Cream lacquer", "Marble"],
     intro:
       "A complete family home composed room by room — from a personalised entrance to a principal suite in cream and gold.",
     concept:
@@ -48,6 +50,7 @@ export const projects: Project[] = [
     location: "Vadodara, Gujarat",
     area: "Apartment",
     scope: ["Interior architecture", "Kitchen design", "Bespoke furniture", "Styling"],
+    materials: ["Sage lacquer", "Reeded glass", "Ivory fluting", "Brass", "Quartzite"],
     intro:
       "A city apartment in a palette of sage, ivory and brass — calm, green and quietly playful.",
     concept:
@@ -69,6 +72,7 @@ export const projects: Project[] = [
     location: "Vadodara, Gujarat",
     area: "Residence",
     scope: ["Interior architecture", "Bespoke furniture", "Wall treatments", "Styling"],
+    materials: ["Hand-finished plaster", "Umber suede", "Limed oak", "Grey marble", "Aged bronze"],
     intro:
       "A home drawn in dunes — wave-edged joinery, hand-finished plaster and a palette taken from sand and earth.",
     concept:

@@ -7,8 +7,23 @@ import MagneticButton from "@/components/ui/MagneticButton";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "we2 is an interior design studio in Vadodara — a small team composing timeless residential and hospitality interiors defined by restraint and material honesty.",
+    "we2 is an architecture, interior and civil studio in Vadodara — a small team composing timeless homes defined by restraint, proportion and material honesty.",
 };
+
+const disciplines = [
+  {
+    title: "Architect",
+    body: "Structure and light resolved first — plans, volumes and thresholds drawn so the interior has something worth revealing.",
+  },
+  {
+    title: "Interior",
+    body: "The rooms themselves: joinery, material, furniture and light composed into spaces that feel inevitable.",
+  },
+  {
+    title: "Civil",
+    body: "Our own execution on site. The wall behind the veneer is built by the same hands that drew it — nothing is lost in translation.",
+  },
+];
 
 const values = [
   { title: "Restraint", body: "We remove until only the essential remains. What is left is calm, confident and quietly rich." },
@@ -65,6 +80,28 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="container-editorial py-24 md:py-32">
+        <div className="mb-14 grid gap-6 md:grid-cols-12 md:items-end">
+          <h2 className="font-serif text-display-sm tracking-tight md:col-span-7">
+            One hand, three disciplines
+          </h2>
+          <p className="max-w-sm font-sans text-sm leading-relaxed text-ink/55 md:col-span-5">
+            Most projects pass between an architect, a decorator and a contractor — and lose
+            something at every handover. At we2, the drawing, the room and the build stay in one
+            hand.
+          </p>
+        </div>
+        <div className="grid gap-10 md:grid-cols-3">
+          {disciplines.map((d, i) => (
+            <Reveal as="div" key={d.title} delay={i} className="border-t border-line pt-6">
+              <p className="eyebrow mb-4">0{i + 1}</p>
+              <h3 className="font-serif text-3xl tracking-tight">{d.title}</h3>
+              <p className="mt-3 max-w-xs font-sans text-sm leading-relaxed text-ink/60">{d.body}</p>
+            </Reveal>
+          ))}
         </div>
       </section>
 

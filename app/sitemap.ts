@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { projects } from "@/lib/projects";
+import { journal } from "@/lib/journal";
 
 export const dynamic = "force-static";
 
@@ -21,5 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...routes, ...projectRoutes];
+  const journalRoutes = journal.map((e) => ({
+    url: `${site.url}/journal/${e.slug}`,
+    lastModified: new Date(e.dateISO),
+    changeFrequency: "yearly" as const,
+    priority: 0.5,
+  }));
+
+  return [...routes, ...projectRoutes, ...journalRoutes];
 }

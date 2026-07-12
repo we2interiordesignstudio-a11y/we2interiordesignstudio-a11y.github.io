@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { journal } from "@/lib/content";
+import { journal } from "@/lib/journal";
 import Photo from "@/components/ui/Photo";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -17,7 +17,7 @@ export default function JournalSection() {
         <div className="grid gap-12 md:grid-cols-3">
           {journal.map((entry, i) => (
             <Reveal as="div" key={entry.slug} delay={i}>
-              <Link href="/journal" data-cursor="hover" className="group block">
+              <Link href={`/journal/${entry.slug}`} data-cursor="hover" className="group block">
                 <Photo src={entry.cover} alt={entry.title} tone={entry.tone} ratio="aspect-[5/6]" sizes="(max-width: 768px) 100vw, 33vw" />
                 <p className="eyebrow mt-6">{entry.category} · {entry.date}</p>
                 <h3 className="mt-3 font-serif text-2xl leading-snug tracking-tight transition-colors duration-500 group-hover:text-bronze">
