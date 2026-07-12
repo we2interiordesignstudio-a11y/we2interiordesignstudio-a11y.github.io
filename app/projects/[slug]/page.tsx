@@ -28,8 +28,19 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
   const index = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(index + 1) % projects.length];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://we2interiors.com" },
+      { "@type": "ListItem", position: 2, name: "Projects", item: "https://we2interiors.com/projects" },
+      { "@type": "ListItem", position: 3, name: project.title },
+    ],
+  };
+
   return (
     <article>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Cinematic hero */}
       <section className="relative flex h-[92svh] min-h-[560px] items-end overflow-hidden">
         <div className="absolute inset-0 animate-kenburns">

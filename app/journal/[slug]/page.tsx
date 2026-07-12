@@ -43,9 +43,20 @@ export default function JournalArticlePage({ params }: { params: { slug: string 
     publisher: { "@type": "Organization", name: site.name, url: site.url },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Journal", item: `${site.url}/journal` },
+      { "@type": "ListItem", position: 3, name: entry.title },
+    ],
+  };
+
   return (
     <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Editorial header */}
       <header className="container-editorial pt-40 md:pt-52">

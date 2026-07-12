@@ -58,12 +58,21 @@ export const metadata: Metadata = {
 const schema = {
   "@context": "https://schema.org",
   "@type": "InteriorDesignService",
+  "@id": `${site.url}/#studio`,
   name: site.name,
+  alternateName: "we2",
+  slogan: "Architect | Interior | Civil",
   description: site.description,
   url: site.url,
   email: site.email,
   telephone: site.phone,
-  areaServed: "India",
+  image: `${site.url}/projects/dune-01.jpg`,
+  priceRange: "₹₹₹",
+  areaServed: [
+    { "@type": "City", name: "Vadodara" },
+    { "@type": "State", name: "Gujarat" },
+    { "@type": "Country", name: "India" },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
@@ -72,6 +81,14 @@ const schema = {
     postalCode: site.address.postalCode,
     addressCountry: "IN",
   },
+  geo: { "@type": "GeoCoordinates", latitude: 22.3149, longitude: 73.1372 },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "10:00",
+    closes: "18:00",
+  },
+  knowsAbout: ["Interior design", "Architecture", "Civil construction", "Turnkey interiors", "Residential design"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
