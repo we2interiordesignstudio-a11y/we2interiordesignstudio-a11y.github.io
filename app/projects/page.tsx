@@ -37,11 +37,11 @@ export default function ProjectsPage() {
                     <h2 className="font-serif text-3xl tracking-tight transition-colors duration-500 group-hover:text-bronze md:text-4xl">
                       {p.title}
                     </h2>
-                    <p className="mt-2 font-sans text-[0.72rem] uppercase tracking-wide text-ink/50">
+                    <p className="mt-2 font-sans text-[0.72rem] uppercase tracking-wide text-ink/60">
                       {p.category} · {p.location}
                     </p>
                   </div>
-                  <span className="font-sans text-sm text-ink/40">{p.year}</span>
+                  <span className="font-sans text-sm text-ink/60">{p.year}</span>
                 </div>
               </Link>
             </Reveal>

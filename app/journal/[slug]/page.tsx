@@ -67,7 +67,7 @@ export default function JournalArticlePage({ params }: { params: { slug: string 
           <h1 className="mt-6 font-serif text-display-sm tracking-tight md:text-[3.4rem] md:leading-[1.05]">
             {entry.title}
           </h1>
-          <p className="mt-6 font-sans text-base leading-relaxed text-ink/55">{entry.excerpt}</p>
+          <p className="mt-6 font-sans text-base leading-relaxed text-ink/60">{entry.excerpt}</p>
         </div>
       </header>
 

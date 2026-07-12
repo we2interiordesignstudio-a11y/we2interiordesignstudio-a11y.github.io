@@ -23,7 +23,7 @@ export default function JournalSection() {
                 <h3 className="mt-3 font-serif text-2xl leading-snug tracking-tight transition-colors duration-500 group-hover:text-bronze">
                   {entry.title}
                 </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-ink/55">{entry.excerpt}</p>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-ink/60">{entry.excerpt}</p>
               </Link>
             </Reveal>
           ))}

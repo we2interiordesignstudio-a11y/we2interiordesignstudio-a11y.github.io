@@ -14,7 +14,7 @@ export default function FeaturedProjects() {
             <RevealLine>Selected</RevealLine>
             <RevealLine delay={0.08}>Works</RevealLine>
           </h2>
-          <Reveal className="max-w-sm font-sans text-sm leading-relaxed text-ink/55" delay={1}>
+          <Reveal className="max-w-sm font-sans text-sm leading-relaxed text-ink/60" delay={1}>
             A considered portfolio of homes and apartments — each a study in restraint, material
             and light.
           </Reveal>
@@ -36,7 +36,7 @@ export default function FeaturedProjects() {
                     <h3 className="font-serif text-4xl leading-tight tracking-tight transition-colors duration-500 group-hover:text-bronze md:text-5xl">
                       {p.title}
                     </h3>
-                    <p className="mt-5 font-sans text-sm leading-relaxed text-ink/55">{p.intro}</p>
+                    <p className="mt-5 font-sans text-sm leading-relaxed text-ink/60">{p.intro}</p>
                     <span className="mt-7 inline-flex items-center gap-2 font-sans text-[0.7rem] uppercase tracking-wide text-ink/70">
                       View Project
                       <span className="transition-transform duration-500 group-hover:translate-x-1.5">&#8594;</span>

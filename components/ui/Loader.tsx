@@ -38,7 +38,7 @@ export default function Loader() {
               <div className="font-serif text-4xl tracking-tight md:text-6xl">
                 we2<span className="text-bronze">.</span>
               </div>
-              <div className="mt-5 font-sans text-[0.65rem] uppercase tracking-label text-cream/45">
+              <div className="mt-5 font-sans text-[0.65rem] uppercase tracking-label text-cream/70">
                 Architect&ensp;|&ensp;Interior&ensp;|&ensp;Civil
               </div>
             </motion.div>

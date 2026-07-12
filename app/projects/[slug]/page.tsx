@@ -99,10 +99,16 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="container-editorial py-24 md:py-32">
-        <p className="eyebrow mb-10">Gallery — click any frame to view fullscreen</p>
-        <ProjectGallery gallery={project.gallery} />
+      {/* Visual story */}
+      <section className="py-24 md:py-32">
+        <div className="container-editorial">
+          <p className="eyebrow mb-10">The story — click any frame to view fullscreen</p>
+        </div>
+        <ProjectGallery
+          gallery={project.gallery}
+          tone={project.tone}
+          quote={`${project.concept.split(". ")[0]}.`}
+        />
       </section>
 
       {/* Next project */}

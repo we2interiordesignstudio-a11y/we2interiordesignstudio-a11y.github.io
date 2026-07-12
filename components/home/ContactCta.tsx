@@ -10,7 +10,7 @@ export default function ContactCta() {
           <RevealLine>Let us design</RevealLine>
           <RevealLine delay={0.1}>your next chapter.</RevealLine>
         </h2>
-        <p className="mx-auto mt-8 max-w-md font-sans text-sm leading-relaxed text-ink/55">
+        <p className="mx-auto mt-8 max-w-md font-sans text-sm leading-relaxed text-ink/60">
           We take on a small number of projects each year. If ours feels like the right hands for
           yours, we would love to hear from you.
         </p>

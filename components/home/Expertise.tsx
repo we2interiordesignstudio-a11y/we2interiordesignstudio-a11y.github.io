@@ -12,7 +12,7 @@ export default function Expertise() {
       <div className="container-editorial">
         <div className="mb-16 grid gap-6 md:grid-cols-12 md:items-end">
           <h2 className="font-serif text-display-sm md:col-span-7">Our Expertise</h2>
-          <Reveal className="font-sans text-sm leading-relaxed text-ink/55 md:col-span-5" delay={1}>
+          <Reveal className="font-sans text-sm leading-relaxed text-ink/60 md:col-span-5" delay={1}>
             Seven disciplines, one sensibility. Whatever the brief, the intent is constant — spaces
             that feel composed, considered and quietly luxurious.
           </Reveal>
@@ -34,7 +34,7 @@ export default function Expertise() {
                 >
                   {item.title}
                 </h3>
-                <p className="ml-auto hidden max-w-xs text-right font-sans text-sm leading-relaxed text-ink/55 opacity-0 transition-opacity duration-500 group-hover:opacity-100 lg:block">
+                <p className="ml-auto hidden max-w-xs text-right font-sans text-sm leading-relaxed text-ink/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 lg:block">
                   {item.body}
                 </p>
               </div>

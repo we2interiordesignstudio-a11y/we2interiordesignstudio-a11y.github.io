@@ -37,7 +37,7 @@ export default function TestimonialsPage() {
               </blockquote>
               <footer className="md:col-span-3 md:text-right">
                 <p className="font-sans text-sm text-ink/70">{t.name}</p>
-                <p className="mt-1 font-sans text-[0.7rem] uppercase tracking-wide text-ink/45">{t.project}</p>
+                <p className="mt-1 font-sans text-[0.7rem] uppercase tracking-wide text-ink/60">{t.project}</p>
               </footer>
             </Reveal>
           ))}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { nav, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -11,10 +11,22 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [dark, setDark] = useState(false);
+  const lastY = useRef(0);
+
+  // Pages that open on a full-bleed photograph — the bar starts transparent in cream there
+  const overHero = pathname === "/" || /^\/projects\/[^/]+/.test(pathname ?? "");
+  const transparent = overHero && !scrolled && !open;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 40);
+      // Hide when scrolling down past the fold; return the moment the reader scrolls up
+      setHidden(y > lastY.current && y > 320);
+      lastY.current = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -30,12 +42,20 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-[80] transition-all duration-700",
-          scrolled ? "bg-canvas/80 py-4 backdrop-blur-md" : "py-6"
+          "fixed inset-x-0 top-0 z-[80] transition-all duration-700 ease-luxe",
+          scrolled && !open ? "bg-canvas/85 py-4 backdrop-blur-md" : "py-6",
+          hidden && !open ? "-translate-y-full" : "translate-y-0"
         )}
       >
         <nav className="container-editorial flex items-center justify-between">
-          <Link href="/" className="font-serif text-2xl leading-none tracking-tight transition-colors hover:text-bronze" aria-label="we2 home">
+          <Link
+            href="/"
+            className={cn(
+              "font-serif text-2xl leading-none tracking-tight transition-colors duration-500 hover:text-bronze",
+              transparent ? "text-cream" : "text-ink"
+            )}
+            aria-label="we2 home"
+          >
             we2<span className="text-bronze">.</span>
           </Link>
 
@@ -45,8 +65,12 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "link-underline font-sans text-[0.72rem] uppercase tracking-wide transition-colors",
-                  pathname === item.href ? "text-bronze" : "text-ink/70 hover:text-ink"
+                  "link-underline font-sans text-[0.72rem] uppercase tracking-wide transition-colors duration-500",
+                  pathname === item.href
+                    ? "text-bronze"
+                    : transparent
+                      ? "text-cream/85 hover:text-cream"
+                      : "text-ink/70 hover:text-ink"
                 )}
               >
                 {item.label}
@@ -58,7 +82,10 @@ export default function Navbar() {
             <button
               onClick={() => setDark((d) => !d)}
               aria-label="Toggle dark mode"
-              className="hidden h-9 w-9 items-center justify-center rounded-full border border-ink/15 text-xs transition-colors hover:border-bronze hover:text-bronze lg:flex"
+              className={cn(
+                "hidden h-9 w-9 items-center justify-center rounded-full border text-xs transition-colors duration-500 hover:border-bronze hover:text-bronze lg:flex",
+                transparent ? "border-cream/30 text-cream" : "border-ink/15 text-ink"
+              )}
             >
               {dark ? "☾" : "☀"}
             </button>
@@ -67,9 +94,9 @@ export default function Navbar() {
               aria-label="Open menu"
               className="flex flex-col items-end gap-[5px] lg:hidden"
             >
-              <span className={cn("h-px bg-ink transition-all duration-300", open ? "w-6 translate-y-[6px] rotate-45" : "w-6")} />
-              <span className={cn("h-px bg-ink transition-all duration-300", open ? "opacity-0" : "w-4")} />
-              <span className={cn("h-px bg-ink transition-all duration-300", open ? "w-6 -translate-y-[6px] -rotate-45" : "w-6")} />
+              <span className={cn("h-px transition-all duration-300", transparent && !open ? "bg-cream" : "bg-ink", open ? "w-6 translate-y-[6px] rotate-45" : "w-6")} />
+              <span className={cn("h-px transition-all duration-300", transparent && !open ? "bg-cream" : "bg-ink", open ? "opacity-0" : "w-4")} />
+              <span className={cn("h-px transition-all duration-300", transparent && !open ? "bg-cream" : "bg-ink", open ? "w-6 -translate-y-[6px] -rotate-45" : "w-6")} />
             </button>
           </div>
         </nav>
@@ -99,7 +126,7 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="mt-14 font-sans text-xs uppercase tracking-label text-ink/50">
+            <div className="mt-14 font-sans text-xs uppercase tracking-label text-ink/60">
               {site.email}
             </div>
           </motion.div>

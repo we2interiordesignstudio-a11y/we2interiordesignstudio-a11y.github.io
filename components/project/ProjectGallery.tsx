@@ -4,10 +4,55 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Photo from "@/components/ui/Photo";
+import { Reveal } from "@/components/ui/Reveal";
 import type { Project } from "@/lib/projects";
 
-export default function ProjectGallery({ gallery }: { gallery: Project["gallery"] }) {
+type Item = Project["gallery"][number] & { index: number };
+type Row =
+  | { kind: "full"; item: Item }
+  | { kind: "pair"; items: [Item, Item] }
+  | { kind: "tall"; item: Item };
+
+/** Compose the flat gallery into an editorial rhythm: full-bleed → offset pair → tall study. */
+function composeRows(gallery: Project["gallery"]): Row[] {
+  const items: Item[] = gallery.map((g, index) => ({ ...g, index }));
+  const rows: Row[] = [];
+  let pending: Item[] = [];
+
+  const flushPending = () => {
+    while (pending.length >= 2) {
+      rows.push({ kind: "pair", items: [pending.shift()!, pending.shift()!] });
+    }
+    if (pending.length === 1) {
+      rows.push({ kind: "tall", item: pending.shift()! });
+    }
+  };
+
+  for (const item of items) {
+    if (item.wide) {
+      flushPending();
+      rows.push({ kind: "full", item });
+    } else {
+      pending.push(item);
+    }
+  }
+  flushPending();
+  return rows;
+}
+
+export default function ProjectGallery({
+  gallery,
+  tone,
+  quote,
+}: {
+  gallery: Project["gallery"];
+  tone?: string;
+  quote?: string;
+}) {
   const [open, setOpen] = useState<number | null>(null);
+  const rows = composeRows(gallery);
+  // The concept fragment breathes after the first full-bleed moment
+  const quoteAfter = Math.min(1, rows.length - 1);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -20,24 +65,59 @@ export default function ProjectGallery({ gallery }: { gallery: Project["gallery"
     return () => window.removeEventListener("keydown", onKey);
   }, [open, gallery.length]);
 
+  const frame = (item: Item, ratio: string, sizes: string, className = "") => (
+    <button
+      onClick={() => setOpen(item.index)}
+      data-cursor="hover"
+      className={`block w-full text-left ${className}`}
+      aria-label={`Open image: ${item.caption}`}
+    >
+      <Photo src={item.src} tone={tone} caption={item.caption} ratio={ratio} sizes={sizes} />
+    </button>
+  );
+
   return (
     <>
-      <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-        {gallery.map((img, i) => (
-          <button
-            key={i}
-            onClick={() => setOpen(i)}
-            data-cursor="hover"
-            className={`block text-left ${img.wide ? "md:col-span-2" : ""}`}
-            aria-label={`Open image: ${img.caption}`}
-          >
-            <Photo
-              src={img.src}
-              caption={img.caption}
-              ratio={img.wide ? "aspect-[16/9]" : "aspect-[4/5]"}
-              sizes={img.wide ? "(max-width: 768px) 100vw, 80vw" : "(max-width: 768px) 100vw, 40vw"}
-            />
-          </button>
+      <div className="space-y-16 md:space-y-24">
+        {rows.map((row, r) => (
+          <div key={r}>
+            {row.kind === "full" && (
+              <div className="relative left-1/2 w-screen -translate-x-1/2">
+                {frame(row.item, "aspect-[16/9] md:aspect-[21/9]", "100vw")}
+              </div>
+            )}
+
+            {row.kind === "pair" && (
+              <div className="container-editorial grid gap-10 md:grid-cols-2 md:gap-12">
+                {frame(row.items[0], "aspect-[4/5]", "(max-width: 768px) 100vw, 45vw")}
+                {frame(row.items[1], "aspect-[4/5]", "(max-width: 768px) 100vw, 45vw", "md:mt-24")}
+              </div>
+            )}
+
+            {row.kind === "tall" && (
+              <div className="container-editorial grid items-end gap-10 md:grid-cols-12">
+                <div className="md:col-span-7">
+                  {frame(row.item, "aspect-[3/4]", "(max-width: 768px) 100vw, 55vw")}
+                </div>
+                <div className="md:col-span-4 md:col-start-9 md:pb-10">
+                  <p className="font-serif text-6xl text-ink/15">
+                    {String(row.item.index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="mt-4 max-w-xs font-sans text-sm leading-relaxed text-ink/60">
+                    {row.item.caption}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {quote && r === quoteAfter && (
+              <div className="container-editorial pt-16 md:pt-24">
+                <Reveal className="mx-auto max-w-3xl text-center font-serif text-3xl leading-[1.35] tracking-tight md:text-4xl">
+                  {quote}
+                </Reveal>
+              </div>
+            )}
+          </div>
         ))}
       </div>
 
@@ -74,7 +154,7 @@ export default function ProjectGallery({ gallery }: { gallery: Project["gallery"
                   className="object-contain"
                 />
               </div>
-              <p className="mt-4 text-center font-sans text-[0.72rem] uppercase tracking-wide text-cream/60">
+              <p className="mt-4 text-center font-sans text-[0.72rem] uppercase tracking-wide text-cream/70">
                 {gallery[open].caption} — {open + 1} / {gallery.length}
               </p>
             </motion.div>

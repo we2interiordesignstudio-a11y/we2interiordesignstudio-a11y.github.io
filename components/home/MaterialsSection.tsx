@@ -24,7 +24,7 @@ export default function MaterialsSection() {
           <h2 className="font-serif text-display-sm md:col-span-7">
             Materials &amp; craftsmanship
           </h2>
-          <p className="max-w-sm font-sans text-sm leading-relaxed text-ink/55 md:col-span-5">
+          <p className="max-w-sm font-sans text-sm leading-relaxed text-ink/60 md:col-span-5">
             Every project is built from a short, disciplined palette — natural, tactile, and
             chosen to grow more beautiful with use.
           </p>
@@ -65,7 +65,7 @@ export default function MaterialsSection() {
           {beliefs.map((b, i) => (
             <Reveal as="div" key={b.title} delay={i}>
               <h3 className="font-serif text-2xl tracking-tight">{b.title}</h3>
-              <p className="mt-3 max-w-xs font-sans text-sm leading-relaxed text-ink/55">{b.body}</p>
+              <p className="mt-3 max-w-xs font-sans text-sm leading-relaxed text-ink/60">{b.body}</p>
             </Reveal>
           ))}
         </div>

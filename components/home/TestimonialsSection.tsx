@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
           </motion.blockquote>
         </AnimatePresence>
 
-        <div className="mt-12 font-sans text-[0.7rem] uppercase tracking-label text-ink/50">
+        <div className="mt-12 font-sans text-[0.7rem] uppercase tracking-label text-ink/60">
           {t.name} — {t.project}
         </div>
 

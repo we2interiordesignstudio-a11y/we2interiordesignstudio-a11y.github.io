@@ -29,7 +29,7 @@ export default function ServicesPage() {
                 <p className="max-w-prose font-sans text-base leading-relaxed text-ink/65">{s.body}</p>
                 <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
                   {s.includes.map((inc) => (
-                    <li key={inc} className="font-sans text-[0.72rem] uppercase tracking-wide text-ink/50">
+                    <li key={inc} className="font-sans text-[0.72rem] uppercase tracking-wide text-ink/60">
                       — {inc}
                     </li>
                   ))}
