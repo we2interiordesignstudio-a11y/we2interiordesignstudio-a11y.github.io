@@ -42,14 +42,14 @@ function reply(raw: string): Msg {
       "Every project is priced to its scope, so we share a proper quote after a short conversation — rather than a number that wouldn't mean much yet. The quickest way is a message on WhatsApp.",
       true
     );
-  if (/work|portfolio|project|see|photo|example|dune|rathod/.test(t))
-    return m(
-      "Recent work includes Dune House and the Rathod Residence — the full portfolio lives on our Projects page. Is there a particular kind of space you have in mind?"
-    );
-  if (/start|begin|hire|book|consult|enquir|inquir|how do/.test(t))
+  if (/start|begin|hire|book|consult|enquir|inquir|how do i/.test(t))
     return m(
       "Wonderful. It starts with a short conversation about your space, budget and how you want it to feel. The fastest way to begin is a quick WhatsApp message.",
       true
+    );
+  if (/work|portfolio|project|see|photo|example|dune|rathod/.test(t))
+    return m(
+      "Recent work includes Dune House and the Rathod Residence — the full portfolio lives on our Projects page. Is there a particular kind of space you have in mind?"
     );
   if (/home|house|villa|apartment|residen|flat|bedroom/.test(t))
     return m(
