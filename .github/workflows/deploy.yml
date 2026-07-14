@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -35,6 +35,20 @@ jobs:
 
       - name: Disable Jekyll processing
         run: touch out/.nojekyll
+
+      - name: Publish to hostinger branch (serves the live domain)
+        run: |
+          cat > out/.htaccess <<'EOF'
+          ErrorDocument 404 /404.html
+          Options -Indexes
+          EOF
+          cd out
+          git init -b hostinger
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" hostinger
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
